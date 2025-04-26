@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Phinx\Seed\AbstractSeed;
 
-class UserSeed extends AbstractSeed
+class UsersSeed extends AbstractSeed
 {
     public function run(): void
     {
@@ -19,7 +19,7 @@ class UserSeed extends AbstractSeed
             ]
         ];
 
-        $this->table('user')
+        $this->table('users')
             ->insert($data)
             ->saveData();
     }

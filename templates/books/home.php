@@ -5,13 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Tasks</title>
+    <title>Books</title>
 </head>
 
 <?php
 
 require_once '../src/handlers/show.php';
+
 ?>
+
+<div>
+    <a href="/auth" class="mr-4 text-blue-500 hover:underline">Log in</a>
+    <a href="/register" class="text-blue-500 hover:underline">Sign up</a>
+</div>
 
 <body class="bg-sky-100 py-8">
 

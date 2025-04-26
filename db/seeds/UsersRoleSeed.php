@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Phinx\Seed\AbstractSeed;
 
-class UserRoleSeed extends AbstractSeed
+class UsersRoleSeed extends AbstractSeed
 {
     public function run(): void
     {
@@ -13,7 +13,7 @@ class UserRoleSeed extends AbstractSeed
             ['user_id' => 2, 'role_id' => 2]
         ];
 
-        $this->table('user_role')
+        $this->table('users_role')
             ->insert($data)
             ->saveData();
     }

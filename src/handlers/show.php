@@ -3,7 +3,7 @@
 $pdo = getPDO();
 try {
     $pdo = getPDO();
-    $books = getLastFiveBooks($pdo);
+    $books = getLastFiveBooks();
 } catch (Exception $e) {
     echo "Error " . $e->getMessage();
 }

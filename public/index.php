@@ -14,9 +14,12 @@ switch ($url) {
     case '/search':
         require_once $templatesDir . 'search.php';
         break;
-        // case '/contact':
-        //     require_once $templatesDir . 'contact.php';
-        //     break;
+    case '/register':
+        require_once $templatesDir . 'register.php';
+        break;
+    case '/auth':
+        require_once $templatesDir . 'auth.php';
+        break;
         // default:
         //     require_once $templatesDir . 'errors/404.php';
         //     http_response_code(404);
