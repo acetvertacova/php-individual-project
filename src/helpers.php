@@ -18,3 +18,19 @@ function getLastFiveBooks(PDO $pdo): array
 
     return $latestBooks;
 }
+
+function filter(PDO $pdo, string $criteria, string $value): array
+{
+    $allowed = ['title', 'author', 'genre'];
+
+    if (!in_array($criteria, $allowed)) {
+        echo "Not allowed criteria of search";
+    }
+
+    $sql = "SELECT * FROM book WHERE $criteria ILIKE :value";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['value' => "%$value%"]);
+
+    $books = $stmt->fetchAll();
+    return $books;
+}
