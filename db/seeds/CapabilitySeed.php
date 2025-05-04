@@ -12,7 +12,8 @@ class CapabilitySeed extends AbstractSeed
             ['name' => 'create_post'],
             ['name' => 'edit_post'],
             ['name' => 'delete_post'],
-            ['name' => 'view_post']
+            ['name' => 'view_post'],
+            ['name' => 'create_user']
         ];
 
         $this->table('capability')

@@ -13,7 +13,8 @@ class PermissionSeed extends AbstractSeed
             ['role_id' => 2, 'capability_id' => 1],
             ['role_id' => 2, 'capability_id' => 2],
             ['role_id' => 2, 'capability_id' => 3],
-            ['role_id' => 2, 'capability_id' => 4]
+            ['role_id' => 2, 'capability_id' => 4],
+            ['role_id' => 2, 'capability_id' => 5]
         ];
 
         $this->table('permission')

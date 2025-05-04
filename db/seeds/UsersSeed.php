@@ -15,7 +15,7 @@ class UsersSeed extends AbstractSeed
             ],
             [
                 'username' => 'jane.smith',
-                'password' => password_hash('76542edgw', PASSWORD_DEFAULT),
+                'password' => password_hash('janeadmin', PASSWORD_DEFAULT),
             ]
         ];
 
