@@ -164,7 +164,7 @@ Steps:
   }
   ```
 
-    <img src='/usage/add.png'>
+   <img src='/usage/add.png'>
 
   **edit** existing book:
     - The admin clicks the "Edit" button for a book they want to edit.
@@ -189,7 +189,7 @@ Steps:
   }
   ```
 
-    <img src='/usage/edit.png'>
+   <img src='/usage/edit.png'>
 
 
   **delete** a book:
