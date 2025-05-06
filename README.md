@@ -85,9 +85,7 @@ This is a web-based Online Book Library system built using PHP, HTML, and Tailwi
 
 ### Usage Scenario
 
-1. Use Case: View Books (Non-Authenticated User)
-Actor: Non-Authenticated User
-Description: A user who is not logged in can view the list of available books and search by criteria (title, author, genre, availability).
+1. `Use Case:` View Books (Non-Authenticated User). `Actor:` Non-Authenticated User. `Description:` A user who is not logged in can view the list of available books and search by criteria (title, author, genre, availability).
 
 Steps:
  - The user visits the homepage of the online library.
@@ -122,10 +120,7 @@ Steps:
 }
 ```
 
- 2. Use Case: View Books (Authenticated User - User Role)
-Actor: Authenticated User (User Role)
-
-Description: An authenticated user can view all available books, search for books, but cannot perform administrative actions.
+ 2. `Use Case:` View Books (Authenticated User - User Role). `Actor:` Authenticated User (User Role). `Description:` An authenticated user can view all available books, search for books, but cannot perform administrative actions.
 
 Steps:
   - The user logs in with their credentials.
@@ -136,10 +131,7 @@ Steps:
 
    <img src='/usage/greeting.png'>
 
-3. Use Case: View Books (Admin User)
-Actor: Admin User
-
-Description: An admin can view all available books, search for books, and perform administrative actions like adding, editing, and deleting books, as well as creating new users.
+3. `Use Case:` View Books (Admin User). `Actor:` Admin User. `Description:` An admin can view all available books, search for books, and perform administrative actions like adding, editing, and deleting books, as well as creating new users.
 
 Steps:
   - The admin logs in with their credentials.
