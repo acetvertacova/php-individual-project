@@ -204,7 +204,7 @@ Steps:
       $stmt->execute([':id' => $id]);
   }
   ```
-    <img src='/usage/delete.png'>
+   <img src='/usage/delete.png'>
 
   - The admin can create new users by navigating to the create user page and view the list of users.
 
