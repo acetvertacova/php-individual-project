@@ -83,7 +83,7 @@ This is a web-based Online Book Library system built using PHP, HTML, and Tailwi
         ├── phinx.php                   # phinx configuration for migrations
         |...
 
-## Usage Scenario
+### Usage Scenario
 
 1. Use Case: View Books (Non-Authenticated User)
 Actor: Non-Authenticated User
@@ -91,15 +91,174 @@ Description: A user who is not logged in can view the list of available books an
 
 Steps:
  - The user visits the homepage of the online library.
+
+ <img src='/usage/home-page.png'>
+
  - The user can use the search feature to filter books by title, author, genre, or availability.
 
+ <img src='/usage/search.png'>
 
+ ```php
+ function filter(string $criteria, string $value): array
+{
+    global $pdo;
+    $allowed = ['title', 'author', 'genre', 'available'];
+
+    if (!in_array($criteria, $allowed)) {
+        echo "Not allowed criteria of search";
+    }
+
+    if ($criteria === 'available') {
+        $sql = "SELECT * FROM book WHERE available = true";
+        $stmt = $pdo->query($sql);
+    } else {
+        $sql = "SELECT * FROM book WHERE $criteria ILIKE :value";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['value' => "%$value%"]);
+    }
+    $books = $stmt->fetchAll();
+
+    return $books;
+}
+```
+
+ 2. Use Case: View Books (Authenticated User - User Role)
+Actor: Authenticated User (User Role)
+
+Description: An authenticated user can view all available books, search for books, but cannot perform administrative actions.
+
+Steps:
+  - The user logs in with their credentials.
+
+   <img src='/usage/signin.png'>
+
+  - The user is greeted with a welcome message and can see the list of available books.
+
+   <img src='/usage/greeting.png'>
+
+3. Use Case: View Books (Admin User)
+Actor: Admin User
+
+Description: An admin can view all available books, search for books, and perform administrative actions like adding, editing, and deleting books, as well as creating new users.
+
+Steps:
+  - The admin logs in with their credentials.
+  - The admin is greeted with a welcome message.
+  - The admin can see the list of available books, options for manipulating the data(edit, delete, create).
+
+    <img src='/usage/admin.png'>
+
+  - The admin can search for books by criteria.
+  - The admin can **add** a new book:
+    - The admin navigates to the "Add Book" page.
+    - The admin fills in the form with the book's title, author, description, genre, and availability.
+    - The admin submits the form to add the book.
+    - The new book is added to the library and is visible in the book list.
+
+  ```php
+  function create($title, $author, $description, $genre, $available)
+  {
+      global $pdo;
+
+      $stmt = $pdo->prepare("INSERT INTO book (title, author, description, genre, available, created_at)
+      VALUES (:title, :author, :description, :genre, :available, NOW())");
+      $stmt->execute([
+          ':title' => $title,
+          ':author' => $author,
+          ':description' => $description,
+          ':genre' => $genre,
+          ':available' => $available,
+      ]);
+  }
+  ```
+
+    <img src='/usage/add.png'>
+
+  **edit** existing book:
+    - The admin clicks the "Edit" button for a book they want to edit.
+    - The admin updates the book's title, author, description, genre, or availability.
+    - The admin submits the form to save the changes.
+    - The book details are updated in the system.
+
+  ```php
+    function update(string $title, string $author, string $description, string $genre, string $available, int $id)
+  {
+      global $pdo;
+      $stmt = $pdo->prepare("UPDATE book SET title = :title, author = :author, description = :description, genre = :genre, available = :available, updated_at = NOW() WHERE id = :id");
+
+      $stmt->execute([
+          ':title' => $title,
+          ':author' => $author,
+          ':description' => $description,
+          ':genre' => $genre,
+          ':available' => $available,
+          ':id' => $id,
+      ]);
+  }
+  ```
+
+    <img src='/usage/edit.png'>
+
+
+  **delete** a book:
+    - The admin clicks the "Delete" button next to a book.
+    - The book is removed from the library.
+
+  ```php
+      function delete(int $id)
+  {
+      global $pdo;
+      $stmt = $pdo->prepare("DELETE FROM book WHERE id = :id");
+      $stmt->execute([':id' => $id]);
+  }
+  ```
+    <img src='/usage/delete.png'>
+
+  - The admin can create new users by navigating to the create user page and view the list of users.
+
+    <img src='/usage/add-user.png'>
+
+    <img src='/usage/users.png'>
+
+### DataBase Structure
+
+  <img src='/usage/db.png'>
+
+**Dependencies:**
+
+1. `permission`
+- Depends on:
+  - `role` 
+  - `capability`
+- Type: Many-to-Many (via foreign keys)
+- Effect: Each role can have multiple capabilities; each capability can belong to multiple roles.
+
+2. `users_role`
+- Depends on:
+  - `users` 
+  - `role` 
+- Type: Many-to-Many
+- Effect: Each user can have multiple roles; each role can belong to multiple users.
+
+3. Independent Tables
+- These tables don't depend on others:
+  - book — contains book data; not linked to users or roles.
+  - users — stores user credentials.
+  - role — defines roles like admin, librarian.
+  - capability — defines permissions such as `"add_book"`, `"delete_user"`.
+
+**Dependency Chain Example** 
+Let’s say a user wants to edit a book:
+
+The `user` is linked to a `role` (via users_role). The `role` is linked to a `capability` like `"edit_book"` (via permission). The app checks if the `user's roles` grant the required `capability`.
+
+This forms a **Role-Based Access Control** (RBAC) pattern.
 
 ## Source List 
 
 1. [Phinx] (https://phinx.org/)
 2. [PHP Documentation](https://www.php.net/docs.php)
-3. [Git Course](https://github.com/MSU-Courses/advanced-web-programming/tree/main/07_Forms_And_Validation)
+3. [Git Course](https://github.com/MSU-Courses/advanced-web-programming)
 
 
 
