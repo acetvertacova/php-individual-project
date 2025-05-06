@@ -17,10 +17,9 @@
 
     <p class="mt-2 text-[#5b4633]"><span class="font-semibold">Available:</span> <?= $book['available'] ? 'yes' : 'no'; ?></p>
 
-    <?php if (can('edit_post') && can('delete_post') && can('create_post')): ?>
+    <?php if (can('edit_post') && can('delete_post')): ?>
         <div class="mt-5 flex gap-3">
             <a href="/edit?id=<?= $book['id'] ?>" class="bg-[#a38e74] hover:bg-[#8f7a63] text-white font-bold py-2 px-5 rounded-xl shadow-sm transition duration-300">Edit</a>
-            <a href="/create" class="bg-[#a38e74] hover:bg-[#8f7a63] text-white font-bold py-2 px-5 rounded-xl shadow-sm transition duration-300">Create</a>
             <a href="/delete?id=<?= $book['id'] ?>" class="bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-5 rounded-xl shadow-sm transition duration-300">Delete</a>
         </div>
     <?php endif; ?>

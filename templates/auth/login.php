@@ -9,6 +9,7 @@
 </head>
 
 <?php
+
 require_once '../src/handlers/auth/login.php';
 ?>
 

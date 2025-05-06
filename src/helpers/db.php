@@ -43,6 +43,7 @@ function filter(string $criteria, string $value): array
     return $books;
 }
 
+
 function userExists(string $username): bool
 {
     global $pdo;
@@ -91,30 +92,6 @@ function findUserById(int $userId, array $columns = ['*'])
     return $stmt->fetch();
 }
 
-function isAuthenticated()
-{
-    return isset($_SESSION['user_id']);
-}
-
-function getCurrentUser()
-{
-    return isAuthenticated() ? findUserById($_SESSION['user_id']) : null;
-}
-
-function deleteSession()
-{
-    // Удаление всех переменных сессии
-    session_unset();
-
-    // Очистка сессии
-    session_destroy();
-
-    // Удаление cookie remember_token, если оно установлено
-    if (isset($_COOKIE['remember_token'])) {
-        setcookie('remember_token', '', -1);
-    }
-}
-
 function can(string $capability): bool
 {
     global $pdo;
@@ -154,40 +131,6 @@ function create($title, $author, $description, $genre, $available)
         ':genre' => $genre,
         ':available' => $available,
     ]);
-}
-
-function fieldRequired(array $postArray, array &$errors)
-{
-    $requiredFields = ['title', 'author', 'description', 'genre'];
-
-    foreach ($requiredFields as $key) {
-        $value = trim($postArray[$key] ?? '');
-
-        if ($value === '') {
-            $errors[$key][] = 'Field `' . ucfirst($key) . '` is required!';
-        }
-    }
-}
-
-function fieldLength(array $postArray, array &$errors)
-{
-    $fields = ['title', 'description', 'author', 'genre'];
-
-    foreach ($fields as $field) {
-        $value = trim($postArray[$field]);
-
-        if (strlen($value) < 3 || strlen($value) > 250) {
-            $errors[$field][] = ucfirst($field) . ' should contain from 3 to 250 symbols!';
-        }
-    }
-}
-
-function printErrors(array $errors, string $field)
-{
-
-    foreach ($errors[$field] ?? [] as $error) {
-        echo "<p class='text-red-500 text-sm'>* $error</p>";
-    }
 }
 
 function update(string $title, string $author, string $description, string $genre, string $available, int $id)

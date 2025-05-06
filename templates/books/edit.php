@@ -11,7 +11,6 @@
 <?php
 
 require_once '../src/handlers/crudWithBooks/edit.php';
-
 ?>
 
 <body class="bg-[#fffaf3] py-10 font-sans">

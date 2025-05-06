@@ -9,7 +9,7 @@
 </head>
 
 <?php
-session_start();
+
 require_once '../src/handlers/crudWithBooks/show.php';
 ?>
 
@@ -36,8 +36,9 @@ require_once '../src/handlers/crudWithBooks/show.php';
 
         <div class="mb-8 flex flex-wrap gap-4">
             <a href="/search" class="bg-[#c4b497] hover:bg-[#b1a285] text-white font-bold py-2 px-5 rounded-xl shadow-sm transition duration-300">Search a book</a>
-            <?php if (can('create_user')): ?>
+            <?php if (can('create_user') && can('create_post')): ?>
                 <a href="/create_user" class="bg-[#d9a066] hover:bg-[#c48b4f] text-white font-bold py-2 px-5 rounded-xl shadow-sm transition duration-300">Create a user</a>
+                <a href="/create" class="bg-[#a38e74] hover:bg-[#8f7a63] text-white font-bold py-2 px-5 rounded-xl shadow-sm transition duration-300">Add a book</a>
             <?php endif; ?>
         </div>
 

@@ -1,6 +1,10 @@
 <?php
+session_start();
 
-require_once __DIR__ . '/../src/helpers.php';
+require_once __DIR__ . '/../src/helpers/validation.php';
+require_once __DIR__ . '/../src/helpers/session.php';
+require_once __DIR__ . '/../src/helpers/db.php';
+
 require_once __DIR__ . '/../src/db.php';
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

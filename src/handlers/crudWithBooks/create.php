@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 $pdo = getPDO();
 
 if (!can('create_post')) {
