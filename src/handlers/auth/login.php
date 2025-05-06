@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Handles user registration logic.
+ * Validates input, checks for existing username, creates a new user, and assigns a default role.
+ *
+ * @package OnlineLibrary
+ */
+
 $pdo = getPDO();
 $errors = [];
 

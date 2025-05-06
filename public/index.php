@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Main entry point for the application.
+ * Handles routing based on the requested URL path and includes the appropriate templates or handlers.
+ *
+ * @package OnlineLibrary
+ */
 session_start();
 
 require_once __DIR__ . '/../src/helpers/validation.php';

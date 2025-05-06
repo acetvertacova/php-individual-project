@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Handles user login logic.
+ * Validates credentials, starts session on success, and redirects to homepage.
+ *
+ * @package OnlineLibrary
+ */
 $pdo = getPDO();
 $errors = [];
 
