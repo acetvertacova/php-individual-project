@@ -1,4 +1,4 @@
-# Laboratory №5: Database
+# Individual Project: Online Library
 
 ## 🚀 Installation and Project Launch Instructions
  
@@ -83,7 +83,16 @@ This is a web-based Online Book Library system built using PHP, HTML, and Tailwi
         ├── phinx.php                   # phinx configuration for migrations
         |...
 
-## Usage Examples
+## Usage Scenario
+
+1. Use Case: View Books (Non-Authenticated User)
+Actor: Non-Authenticated User
+Description: A user who is not logged in can view the list of available books and search by criteria (title, author, genre, availability).
+
+Steps:
+ - The user visits the homepage of the online library.
+ - The user can use the search feature to filter books by title, author, genre, or availability.
+
 
 
 ## Source List 
