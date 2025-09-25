@@ -25,8 +25,8 @@ switch ($url) {
     case '/search':
         require_once $templatesDir . 'books/search.php';
         break;
-    case '/login':
-        require_once $templatesDir . '/auth/login.php';
+    case '/signup':
+        require_once $templatesDir . '/auth/signup.php';
         break;
     case '/signin':
         require_once $templatesDir . '/auth/signin.php';

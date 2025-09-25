@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Log in</title>
+    <title>Sign up</title>
 </head>
 
 <?php
 
-require_once '../src/handlers/auth/login.php';
+require_once '../src/handlers/auth/signup.php';
 ?>
 
 <body class="bg-[#fffaf3] py-10 font-sans">
 
     <div class="max-w-sm mx-auto px-6">
-        <h2 class="text-4xl font-bold text-[#6e4f3a] mb-10 text-center">🔑 Log in</h2>
+        <h2 class="text-4xl font-bold text-[#6e4f3a] mb-10 text-center">🔑 Sign up</h2>
 
         <?php if (!empty($errors)): ?>
             <div class="bg-[#fcd5d5] text-[#9e2a2f] p-4 rounded-xl mb-6">
@@ -28,7 +28,7 @@ require_once '../src/handlers/auth/login.php';
             </div>
         <?php endif; ?>
 
-        <form method="post" class="bg-white border border-[#f1e4d1] p-8 rounded-2xl shadow-md hover:shadow-lg transition duration-300 ease-in-out space-y-6">
+        <form autocomplete="off" method="post" class="bg-white border border-[#f1e4d1] p-8 rounded-2xl shadow-md hover:shadow-lg transition duration-300 ease-in-out space-y-6">
 
             <div>
                 <label for="username" class="block text-lg font-medium text-[#5b4633] mb-1">Username</label>
@@ -45,7 +45,7 @@ require_once '../src/handlers/auth/login.php';
             <div>
                 <button type="submit"
                     class="w-full bg-[#a38e74] hover:bg-[#8f7a63] text-white font-bold py-3 rounded-xl shadow-sm transition-all duration-300">
-                    🔒 Log in
+                    🔒 Sign up
                 </button>
             </div>
 

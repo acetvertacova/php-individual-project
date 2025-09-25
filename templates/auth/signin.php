@@ -28,7 +28,7 @@ require_once '../src/handlers/auth/signin.php';
             </div>
         <?php endif; ?>
 
-        <form method="post" class="bg-white border border-[#f1e4d1] p-8 rounded-2xl shadow-md hover:shadow-lg transition duration-300 ease-in-out space-y-6">
+        <form autocomplete="off" method="post" class="bg-white border border-[#f1e4d1] p-8 rounded-2xl shadow-md hover:shadow-lg transition duration-300 ease-in-out space-y-6">
 
             <div>
                 <label for="username" class="block text-lg font-medium text-[#5b4633] mb-1">Username</label>

@@ -30,7 +30,7 @@ require_once '../src/handlers/crudWithBooks/show.php';
         <?php else: ?>
             <div class="flex flex-wrap gap-4 mb-8 bg-[#f8e6d2] p-4 rounded-2xl shadow-md">
                 <a href="/signin" class="bg-[#d9a066] hover:bg-[#c48b4f] text-white font-bold py-2 px-5 rounded-xl shadow-sm transition duration-300">Sign in</a>
-                <a href="/login" class="bg-[#a38e74] hover:bg-[#8f7a63] text-white font-bold py-2 px-5 rounded-xl shadow-sm transition duration-300">Log in</a>
+                <a href="/signup" class="bg-[#a38e74] hover:bg-[#8f7a63] text-white font-bold py-2 px-5 rounded-xl shadow-sm transition duration-300">Sign up</a>
             </div>
         <?php endif; ?>
 
