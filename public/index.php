@@ -11,8 +11,8 @@ session_start();
 require_once __DIR__ . '/../src/helpers/validation.php';
 require_once __DIR__ . '/../src/helpers/session.php';
 require_once __DIR__ . '/../src/helpers/db.php';
-
 require_once __DIR__ . '/../src/db.php';
+require_once __DIR__ . '/../src/helpers/logger.php';
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -48,6 +48,9 @@ switch ($url) {
         break;
     case '/users':
         require_once $templatesDir . 'users/show.php';
+        break;
+    case '/logs':
+        require_once $templatesDir . 'admin/logger.php';
         break;
     case '/403':
         require_once $templatesDir . 'errors/403.php';

@@ -122,7 +122,12 @@ function addRoleToUser()
 function findUserByUsername(string $username, $columns = ['*'])
 {
     global $pdo;
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt = $pdo->prepare(" SELECT u.*, r.name AS role
+        FROM users u
+        LEFT JOIN users_role ur ON u.id = ur.user_id
+        LEFT JOIN role r ON ur.role_id = r.id
+        WHERE u.username = ?
+        LIMIT 1");
     $stmt->execute([$username]);
 
     return $stmt->fetch();

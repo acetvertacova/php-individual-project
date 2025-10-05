@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (empty($errors)) {
             create($title, $author, $description, $genre, $available);
+            logAction($_SESSION['username'], "created book '$title'");
             header("Location: /");
         }
     } catch (Exception $e) {

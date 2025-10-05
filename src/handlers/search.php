@@ -8,6 +8,7 @@ $value = $_GET['value'] ?? '';
 if (isset($_GET['criteria'], $_GET['value'])) {
     try {
         $books = filter($criteria, $value);
+        logAction($_SESSION['username'], "searched books by '$criteria' with value '$value'");
 
         if (empty($books)) {
             $errorMessage = "No books found matching your search criteria.";

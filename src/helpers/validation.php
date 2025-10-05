@@ -56,6 +56,6 @@ function printErrors(array $errors, string $field)
 {
 
     foreach ($errors[$field] ?? [] as $error) {
-        echo "<p class='text-red-500 text-sm'>* $error</p>";
+        echo "<p class='text-red-500 text-sm'>* " . htmlspecialchars($error, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . "</p>";
     }
 }

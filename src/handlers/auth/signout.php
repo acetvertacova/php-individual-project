@@ -7,6 +7,7 @@
  * @return void
  */
 if (isset($_SESSION['user_id'])) {
+    logAction($_SESSION['username'] ?? 'unknown', 'logout');
     deleteSession();
 
     header('Location: /');

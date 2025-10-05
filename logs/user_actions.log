@@ -1,0 +1,17 @@
+[2025-10-05 17:34:17] user: unknown action: logout
+[2025-10-05 17:34:22] user: Anastasia action: login
+[2025-10-05 17:35:09] user: Anastasia action: logout
+[2025-10-05 17:40:41] user: Anastasia action: updated book 'The Catcher in the Rye'
+[2025-10-05 17:41:30] user: Anastasia action: searched ''
+[2025-10-05 17:41:48] user: Anastasia action: searched ''
+[2025-10-05 17:42:21] user: Anastasia action: searched books by 'title' with value 'The Hobbit'
+[2025-10-05 17:42:29] user: Anastasia action: searched books by 'title' with value 'the hobbit'
+[2025-10-05 17:42:38] user: Anastasia action: searched books by 'title' with value 'the hobbit'
+[2025-10-05 17:42:42] user: Anastasia action: searched books by 'author' with value 'harper lee'
+[2025-10-05 17:42:55] user: Anastasia action: logout
+[2025-10-05 17:43:00] user: me action: login
+[2025-10-05 17:43:07] user: me action: searched books by 'title' with value 'The Hobbit'
+[2025-10-05 17:43:12] user: me action: logout
+[2025-10-05 17:43:23] user: Anastasia action: login
+[2025-10-05 17:45:52] user: Anastasia action: logout
+[2025-10-05 17:45:59] user: me action: login

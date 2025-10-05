@@ -8,11 +8,12 @@ if (!can('create_post')) {
     exit;
 }
 
-$id = $_GET['id'] ?? null;
+$id = (int) $_GET['id'] ?? null;
 
 if ($id && is_numeric($id)) {
     try {
         delete($id);
+        logAction($_SESSION['username'], "deleted book '$title'");
         header("Location: /");
         exit;
     } catch (Exception $e) {

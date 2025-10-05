@@ -9,7 +9,7 @@ if (!can('create_post')) {
 }
 
 try {
-    $id = $_GET['id'] ?? null;
+    $id = (int) $_GET['id'] ?? null;
 
     if (!$id) {
         die("No book ID provided.");
@@ -37,6 +37,7 @@ try {
 
         if (empty($errors)) {
             update($title, $author, $description, $genre, $available, $id);
+            logAction($_SESSION['username'], "updated book '$title'");
             header("Location: /");
         }
     }

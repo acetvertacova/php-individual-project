@@ -12,6 +12,7 @@ $errors = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $role = $_POST['role'];
 
     $user = findUserByUsername($username);
 
@@ -21,7 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($errors)) {
         $_SESSION['user_id'] = $user['id'];
-        session_regenerate_id();
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['role'] = $user['role'] ?? 'user';
+
+        session_regenerate_id(true);
+
+        logAction($_SESSION['username'], 'login');
         header('Location: /');
         exit;
     }

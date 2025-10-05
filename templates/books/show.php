@@ -42,6 +42,14 @@ require_once '../src/handlers/crudWithBooks/show.php';
             <?php endif; ?>
         </div>
 
+        <div class="mb-8 flex flex-wrap gap-4">
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                <a href="/logs" class="bg-[#9c7e57] hover:bg-[#876c48] text-white font-bold py-2 px-5 rounded-xl shadow-sm transition duration-300">
+                    View Logs
+                </a>
+            <?php endif; ?>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <?php foreach ($books as $book): ?>
                 <?php include 'card.php'; ?>
